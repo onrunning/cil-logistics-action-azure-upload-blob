@@ -52,7 +52,7 @@ jest.mock('@azure/storage-blob', () => {
 
 let mockNotice: string[] = []
 let mockWarning: string[] = []
-let mockFailed: any
+let mockFailed: any // eslint-disable-line @typescript-eslint/no-explicit-any
 let mockInputData: { [key: string]: string | number } = {}
 
 jest.mock('@actions/core', () => {
@@ -67,6 +67,7 @@ jest.mock('@actions/core', () => {
     warning: (txt: string) => {
       mockWarning.push(txt)
     },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setFailed: (obj: any) => {
       mockFailed = obj
     },

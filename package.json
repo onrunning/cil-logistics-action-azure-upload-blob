@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/src/index.js",
   "scripts": {
-    "build": "npm run format && npm run lint && rimraf dist && tsc && npx depcheck",
+    "build": "npm run format && npm run lint && rimraf dist && tsc && npx depcheck && npm run ncc",
     "buildDebug": "npm run format && npm run lint && rimraf dist && tsc --sourceMap true",
     "debug": "npm run buildDebug && node -r ts-node/register --inspect-brk ./node_modules/.bin/jest -i --config=./jest.config.js",
     "doc": "npm run docPdf && npm run docDocbook && npm run doc2md && npm run docApi && npx on-scripts-lib replaceImageLinks",
@@ -14,7 +14,7 @@
     "docPdf": "asciidoctor-pdf -a ./node_modules/.bin/mmdc -r asciidoctor-diagram doc/index.adoc -o docTmp/index.pdf",
     "format": "npx prettier --no-semi --single-quote --write \"{src,tests}/**/*.{js,ts}\"",
     "lint": "npx eslint \"{src,tests}/**/*.{js,ts}\"",
-    "ncc": "npm run build && npx ncc build ./dist/src/blobUploadAction.js -o ./action" ,
+    "ncc": "npx ncc build ./dist/src/blobUploadAction.js -o ./action" ,
     "onUpdate": "npx on-scripts-lib onUpdate",
     "prestart": "npm run build",
     "test": "npm run build && npx jest -c jest.config.js"

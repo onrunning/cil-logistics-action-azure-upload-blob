@@ -28,7 +28,7 @@ export async function blobUpload() {
         const content = await readFile(file, 'utf8')
         const blobClient = containerClient.getBlockBlobClient(blobName)
         const blobLeaseClient = blobClient.getBlobLeaseClient()
-        
+
         if (await blobClient.exists()) {
           // In this case we need to break the lease
           await blobLeaseClient.breakLease(0)
