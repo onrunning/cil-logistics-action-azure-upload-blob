@@ -37,6 +37,9 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.PRIVATE_GITHUB_TOKEN }}
       - run: npm test
       - run: npx semantic-release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
 
 
