@@ -1,5 +1,5 @@
 {
-  "name": "omega-cil-lib-translation",
+  "name": "@onrunning/cil-logistics-action-azure-upload-blob",
   "version": "0.0.0-semantic-version",
   "description": "",
   "main": "dist/src/index.js",
@@ -21,15 +21,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/onrunning/xxx.git"
+    "url": "https://github.com/onrunning/cil-logistics-action-azure-upload-blob.git"
   },
   "keywords": [],
   "author": "",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/onrunning/omega-cil-lib-translation/issues"
+    "url": "https://github.com/onrunning/cil-logistics-action-azure-upload-blob/issues"
   },
-  "homepage": "https://github.com/onrunning/omega-cil-lib-translation#readme",
+  "homepage": "https://github.com/onrunning/cil-logistics-action-azure-upload-blob#readme",
   "dependencies": {
     "@actions/core": "1.8.2",
     "@azure/storage-blob": "12.10.0",
