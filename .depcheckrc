@@ -1,0 +1,14 @@
+ignores: [
+  "@onrunning/cil-logistics-base-lib",
+  "@semantic-release/*",
+  "@types/jest",
+  "@types/node",
+  "@typescript-eslint/parser",
+  "@typescript-eslint/eslint-plugin",
+  "eslint-config-prettier",
+  "eslint-plugin-*",
+  "semantic-release",
+  "ts-jest",
+  "typedoc",
+  "@vercel/ncc"
+]

@@ -1,0 +1,37 @@
+== Azure blob upload 
+This action upload files to the Azure blob storage. If the files are already existing,
+they will be overwritten.
+
+=== Example 
+Place the code in a 'xyz.yml' file in your '.github/workflows' folder.
+
+[source,yml]
+----
+name: Upload Files To Azure Blob Storage
+on:
+  push:
+    branches:
+      - main
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3                            <1>         
+      - uses: onrunning/cil-logistics-action-azure-upload-blob@main 
+        with:
+          source_dir: data                                   <2>
+          container_name: myContainer                        <3>
+          connection_string: ${{ secrets.ConnectionString }} <4>
+          file_pattern: '*.xml'                              <5>
+          lease: -1                                          <6>
+----
+<1> To make this action work, it needs some data.
+<2> The local directory where to get the files from.
+<3> The name of the container in the Azure blob storage.
+<4> The Azure connection String for the blob storage.
+<5> The globby pattern to filter the files in the given directory.
+<6> If set, a lease will be created with the given Time. 
+Must be between 15 to 60 seconds, or infinite (-1)
+
+
+

@@ -1,0 +1,5 @@
+{
+  "entryPoints": ["./src/blobUpload.ts"],
+  "entryPointStrategy": "expand",
+  "out": "docApi"
+}

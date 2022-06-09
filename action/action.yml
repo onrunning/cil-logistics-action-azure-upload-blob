@@ -1,0 +1,22 @@
+name: 'Upload files to blob storage'
+description: 'Upload files into Azure blob storage'
+inputs:
+  connection_string: 
+    description: 'The Azure connection String for the blob storage'
+    required: true
+  container_name: 
+    description: 'The name of the container in Azure'
+    required: true
+  source_dir: 
+    description: 'The local directory where to get the files from'
+    required: true  
+  file_pattern: 
+    description: 'The globby pattern to filter the files in the given directory'
+    required: false
+  lease: 
+    description: 'If set, a lease will be created with the given Time. Must be between 15 to 60 seconds, or infinite (-1)'
+    required: false
+runs:
+  using: 'node16'
+  main: './index.js'
+
