@@ -6,3 +6,7 @@ updates:
     interval: daily
     time: '04:00'
   open-pull-requests-limit: 10
+  ignore:
+      - dependency-name: "globby"
+        # For Express, ignore all updates for version 4 and 5
+        versions: ["^11.0.4"]
