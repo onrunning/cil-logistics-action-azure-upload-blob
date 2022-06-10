@@ -67,7 +67,18 @@ function blobUpload() {
                     const blobLeaseClient = blobClient.getBlobLeaseClient();
                     if (yield blobClient.exists()) {
                         // In this case we need to break the lease
-                        yield blobLeaseClient.breakLease(0);
+                        try {
+                            yield blobLeaseClient.breakLease(0);
+                        }
+                        catch (error) {
+                            console.log('------------------------------');
+                            console.log(error.message);
+                            console.log('------------------------------');
+                            if (error.message !==
+                                'There is currently no lease on the blob.') {
+                                throw error;
+                            }
+                        }
                     }
                     yield blobClient.upload(content, content.length);
                     if (lease !== undefined) {
