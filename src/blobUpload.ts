@@ -38,8 +38,9 @@ export async function blobUpload() {
             console.log((error as Error).message)
             console.log('------------------------------')
             if (
-              (error as Error).message !==
-              'There is currently no lease on the blob.'
+              (error as Error).message.startsWith(
+                'There is currently no lease on the blob'
+              )
             ) {
               throw error
             }

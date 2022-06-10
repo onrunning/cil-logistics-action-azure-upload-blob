@@ -74,8 +74,7 @@ function blobUpload() {
                             console.log('------------------------------');
                             console.log(error.message);
                             console.log('------------------------------');
-                            if (error.message !==
-                                'There is currently no lease on the blob.') {
+                            if (error.message.startsWith('There is currently no lease on the blob')) {
                                 throw error;
                             }
                         }
