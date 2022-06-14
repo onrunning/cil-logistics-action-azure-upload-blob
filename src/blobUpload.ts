@@ -34,9 +34,6 @@ export async function blobUpload() {
           try {
             await blobLeaseClient.breakLease(0)
           } catch (error) {
-            console.log('------------------------------')
-            console.log(`'${(error as Error).message}'`)
-            console.log('------------------------------')
             if (
               !(error as Error).message.match(
                 /There is currently no lease on the blob/
