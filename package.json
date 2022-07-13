@@ -33,7 +33,7 @@
   "dependencies": {
     "@actions/core": "1.9.0",
     "@azure/storage-blob": "12.11.0",
-    "globby": "11.0.4"
+    "globby": "13.1.2"
   },
   "devDependencies": {
     "@onrunning/cil-base-lib": "1.0.5",
