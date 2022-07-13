@@ -9,6 +9,7 @@ const readFile = util.promisify(fs.readFile)
 
 export async function blobUpload() {
   try {
+    // eslint-disable-next-line no-console
     console.log('Start uploading Blob Data')
     const { connectionString, containerName, sourceDir, filePattern, lease } =
       getInputData()
@@ -55,6 +56,7 @@ export async function blobUpload() {
       core.warning(`There are no files for upload.`)
     }
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error)
     core.setFailed((error as Error).message)
     printHelp()
@@ -64,7 +66,7 @@ export async function blobUpload() {
 /**
  * The request definition for getFilesToUpload function
  */
-interface getFilesToUploadRequest {
+interface GetFilesToUploadRequest {
   /** The directory in which to search for the files */
   sourceDir: string
   /** The file pattern to filter the files */
@@ -77,7 +79,7 @@ interface getFilesToUploadRequest {
  * @returns pathes All the matching files
  */
 async function getFilesToUpload(
-  params: getFilesToUploadRequest
+  params: GetFilesToUploadRequest
 ): Promise<string[]> {
   const { sourceDir, filePattern } = params
   return globby([path.join(sourceDir, filePattern)])
@@ -117,6 +119,7 @@ function getInputData() {
  * @returns void
  */
 function printHelp(): void {
+  // eslint-disable-next-line no-console
   console.log(`
   -------------------------------------------  
   - blob upload Action

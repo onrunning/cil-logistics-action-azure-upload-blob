@@ -4,17 +4,17 @@
   "description": "",
   "main": "dist/src/index.js",
   "scripts": {
-    "build": "npm run format && npm run lint && rimraf dist && tsc && npx depcheck && npm run ncc",
+    "build": "npm run format && npm run lint && rimraf dist && tsc && npx depcheck",
     "buildDebug": "npm run format && npm run lint && rimraf dist && tsc --sourceMap true",
     "debug": "npm run buildDebug && node -r ts-node/register --inspect-brk ./node_modules/.bin/jest -i --config=./jest.config.js",
     "doc": "npm run docPdf && npm run docDocbook && npm run doc2md && npm run docApi && npx on-scripts-lib replaceImageLinks",
-    "doc2md": "pandoc -f docbook -t markdown_strict docTmp/index.xml -o readme.md",
+    "doc2md": "pandoc -f docbook -t markdown_strict docTmp/index.xml -o README.md",
     "docApi": "npx typedoc",
     "docDocbook": "asciidoctor -a ./node_modules/.bin/mmdc -r asciidoctor-diagram -b docbook5 doc/index.adoc -o docTmp/index.xml",
     "docPdf": "asciidoctor-pdf -a ./node_modules/.bin/mmdc -r asciidoctor-diagram doc/index.adoc -o docTmp/index.pdf",
     "format": "npx prettier --no-semi --single-quote --write \"{src,tests}/**/*.{js,ts}\"",
     "lint": "npx eslint \"{src,tests}/**/*.{js,ts}\"",
-    "ncc": "npx ncc build ./dist/src/blobUploadAction.js -o ./action" ,
+    "ncc": "npx ncc build ./dist/src/blobUploadAction.js -o ./action",
     "onUpdate": "npx on-scripts-lib onUpdate",
     "prestart": "npm run build",
     "test": "npm run build && npx jest -c jest.config.js"
@@ -31,12 +31,12 @@
   },
   "homepage": "https://github.com/onrunning/cil-logistics-action-azure-upload-blob#readme",
   "dependencies": {
-    "@actions/core": "1.8.2",
-    "@azure/storage-blob": "12.10.0",
+    "@actions/core": "1.9.0",
+    "@azure/storage-blob": "12.11.0",
     "globby": "11.0.4"
   },
   "devDependencies": {
-    "@onrunning/cil-logistics-base-lib": "1.2.16",
+    "@onrunning/cil-base-lib": "1.0.5",
     "@vercel/ncc": "0.34.0"
   },
   "files": [

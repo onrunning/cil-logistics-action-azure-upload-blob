@@ -1,5 +1,5 @@
 ignores: [
-  "@onrunning/cil-logistics-base-lib",
+  "@onrunning/cil-base-lib",
   "@semantic-release/*",
   "@types/jest",
   "@types/node",
@@ -9,6 +9,5 @@ ignores: [
   "eslint-plugin-*",
   "semantic-release",
   "ts-jest",
-  "typedoc",
-  "@vercel/ncc"
+  "typedoc"
 ]
